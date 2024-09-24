@@ -17,19 +17,15 @@
                             </div>
                         @endif
 
-                    <form method="POST" action="{{ url('/categoria') }}">
+                    <form method='POST' action="{{ URL('/categoria') }}">
 
                         @csrf
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="exampleInputEmail1" placeholder="Digite o nome da categoria">
+                            <label for="frame">Nome:</label><br>
+                            <input type="text" name="name" class="form-control"  placeholder="Digite o nome da categoria">
 
                         </div>
-
-
-
-
 
                         <input type="submit" value="Enviar">
                     </form>
