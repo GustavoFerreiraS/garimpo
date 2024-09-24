@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Andre Neves',
-            'email' => 'Andre@andre.com.br',
+            'email' => 'andre@andre.com.br',
             'password' => Hash::make('123456789'),
         ]);
 

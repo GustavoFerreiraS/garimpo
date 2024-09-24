@@ -13,6 +13,7 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::where('id','>=', 2)->orderBy('nome', 'DESC')->get();
+        return view('categoria.categoria.index', compact('categorias'));
         //dd('correu tudo bem');
     }
 
@@ -21,7 +22,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria.categoria.index');
     }
 
     /**
@@ -29,7 +30,18 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required|strig|min:5',
+
+        ]);
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
+        $categoria->save();
+
+        //dd($request->all());
+
+    return redirect()->route('categoria.index')->with('mensagem', 'Categoria cadastrada com sucesso');
+
     }
 
     /**
@@ -37,7 +49,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //dd('show: ' . $id);
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_show', compact('categoria'));
     }
 
     /**
@@ -45,7 +59,10 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         //dd('Edit:' . $id);
+
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_edit', compact('categoria'));
     }
 
     /**
@@ -53,7 +70,19 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          //dd($id);
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+
+        ]);
+
+
+        $categoria = Categoria::find($id);
+        $categoria->nome = $request->nome;
+        $categoria->save();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria criada com sucesso');
+
     }
 
     /**
@@ -61,6 +90,12 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         // dd('Destroy:' . $id);
+
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria excluida com sucesso');
+
     }
 }
