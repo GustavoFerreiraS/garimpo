@@ -30,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //-----------------CATEGORIA----------------//
-Route::get('/user', [CategoriaController::class, 'index']);
+Route::get('/categoria', [CategoriaController::class, 'index']);
 
 
 //-----------------CATEGORIA----------------
