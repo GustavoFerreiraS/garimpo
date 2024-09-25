@@ -39,7 +39,7 @@ class CategoriaController extends Controller
         $categoria->name = $request->name;
         $categoria->save();
 
-        dd($request->all());
+        //dd($request->all());
 
     return redirect()->route('categoria_index')->with('mensagem', 'Categoria cadastrada com sucesso');
 
