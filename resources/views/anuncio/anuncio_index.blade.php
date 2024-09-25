@@ -27,14 +27,16 @@
                 <table>
                     <tr>
                     <th>ID</th>
+                    <th>Categoria</th>
                     <th>Título</th>
                     <th>Conteúdo</th>
                     </tr>
 
                 @foreach($anuncios as $value)
                     <tr>
-                    <td>{{$value->id}}</td>
-                    <td>{{$value->titulo}}</td>
+                    <td>{{ $value->id }}</td>
+                    <td>{{ $value->categoria->nome }}</td>
+                    <td>{{ $value->titulo }}</td>
                     <td>
                         <a href="{{ url('/anuncio/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 

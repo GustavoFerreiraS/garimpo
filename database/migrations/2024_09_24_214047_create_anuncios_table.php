@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('conteudo');
             $table->BigInteger('user_id'); // Relacionamento com o usuário
+            $table->timestamps();
 
 
             //$table->decimal('price', 10, 2);
@@ -26,7 +27,6 @@ return new class extends Migration
             //$table->BigInteger('category_id'); // Relacionamento com a categoria
             //$table->foreign('category_id')->references('id');//->on('categories')->onDelete('cascade');
 
-            $table->timestamps();
 
         });
     }

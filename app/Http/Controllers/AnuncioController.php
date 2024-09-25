@@ -14,7 +14,8 @@ class AnuncioController extends Controller
      */
     public function index()
     {
-        $anuncios = Anuncio::orderBy('titulo', 'DESC')->get();
+        $anuncios = Anuncio::orderBy('titulo', 'ASC')->get();
+
         return view('anuncio.anuncio_index', compact('anuncios'));
         //dd('correu tudo bem');
     }
@@ -39,6 +40,7 @@ class AnuncioController extends Controller
             'conteudo' => 'required|min:5',
 
         ]);
+
         $anuncio = new Anuncio();
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
@@ -48,7 +50,7 @@ class AnuncioController extends Controller
 
         //dd($request->all());
 
-    return redirect()->route('anuncio_index')->with('mensagem', 'Anuncio cadastrada com sucesso');
+    return redirect()->route('anuncio.index')->with('mensagem', 'Anuncio cadastrada com sucesso');
 
     }
 
@@ -59,7 +61,7 @@ class AnuncioController extends Controller
     {
         //dd('show: ' . $id);
         $anuncio = Anuncio::find($id);
-        return view('anuncios.anuncios_show', compact('anuncio'));
+        return view('anuncio.anuncio_show', compact('anuncio'));
     }
 
     /**
@@ -86,8 +88,8 @@ class AnuncioController extends Controller
 
 
         $anuncios = Anuncio::find($id);
-        $anuncio->anuncio = $request->anuncio;
-        $anuncio->save();
+        //$anuncio->anuncio = $request->anuncio;
+       // $anuncio->save();
 
         return redirect()->route('an$anuncio.index')->with('mensagem', 'Anuncio criada com sucesso');
 

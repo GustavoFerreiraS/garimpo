@@ -7,9 +7,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <p><strong>Titulo:</strong> {{ $anuncio->nome }}</p>
+                <p><strong>Categoria:</strong> {{ $anuncio->categoria->nome }}</p>
+                <p><strong>Titulo:</strong> {{ $anuncio->titulo }}</p>
                 <p><strong>Conteúdo:</strong> {{ $anuncio->conteudo }}</p>
-                <p><strong>Autor:</strong> {{-- $anuncio->nome --}}</p>
+                <p><strong>Autor:</strong> {{ $anuncio->autor->name}}</p>
                 <p><strong>Criação</strong> {{ $anuncio->created_at }}</p>
 
                 </div>
