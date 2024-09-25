@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <label for="frame">Nome:</label><br>
-                            <input type="text" name="name" class="form-control"  placeholder="Digite o nome da categoria">
+                            <input type="text" name="nome" class="form-control"  placeholder="Digite o nome da categoria">
 
                         </div>
 
