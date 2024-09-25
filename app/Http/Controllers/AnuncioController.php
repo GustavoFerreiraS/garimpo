@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Anuncio;
+use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 
 class AnuncioController extends Controller
 {
@@ -22,7 +24,8 @@ class AnuncioController extends Controller
      */
     public function create()
     {
-        return view('anuncio.anuncio_create');
+        $categorias = Categoria::OrderBy('nome', 'ASC')->get();
+        return view('anuncio.anuncio_create', compact('categorias'));
     }
 
     /**
@@ -31,11 +34,16 @@ class AnuncioController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'titulo' => 'required|strig|min:5',
+            'categoria_id' => 'required',
+            'titulo' => 'required|min:5',
+            'conteudo' => 'required|min:5',
 
         ]);
         $anuncio = new Anuncio();
-        $anuncio->anuncio = $request->anuncio;
+        $anuncio->categoria_id = $request->categoria_id;
+        $anuncio->user_id = Auth::id();
+        $anuncio->titulo = $request->titulo;
+        $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
 
         //dd($request->all());

@@ -13,16 +13,20 @@ return new class extends Migration
     {
         Schema::create('anuncios', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('categoria_id');
             $table->string('titulo');
             $table->text('conteudo');
             $table->BigInteger('user_id'); // Relacionamento com o usuário
+
+
             //$table->decimal('price', 10, 2);
             //$table->string('contact_info');
             //$table->string('image')->nullable(); // Para armazenar o caminho da imagem
             //$table->foreign('usuario_id')->references('id');//->on('users')->onDelete('cascade');
             //$table->BigInteger('category_id'); // Relacionamento com a categoria
             //$table->foreign('category_id')->references('id');//->on('categories')->onDelete('cascade');
-           // $table->timestamps();
+
+            $table->timestamps();
 
         });
     }

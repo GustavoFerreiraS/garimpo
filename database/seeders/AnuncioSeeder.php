@@ -15,18 +15,21 @@ class AnuncioSeeder extends Seeder
     {
 
         DB::table('anuncios')->insert([
+            'categoria_id' =>1,
             'user_id' => 1,
             'titulo' => 'meu primeiro anuncio',
             'conteudo' => 'Conteúdo da primeira anuncio',
         ]);
 
         DB::table('anuncios')->insert([
+            'categoria_id' =>2,
             'user_id' => 2,
             'titulo' => 'meu segunda anuncio',
             'conteudo' => 'Conteúdo da primeira anuncio',
         ]);
 
         DB::table('anuncios')->insert([
+            'categoria_id' =>3,
             'user_id' => 3,
             'titulo' => 'meu terceira anuncio',
             'conteudo' => 'Conteúdo da primeira anuncio',
