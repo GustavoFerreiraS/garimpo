@@ -12,7 +12,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::where('id','>=', 2)->orderBy('nome', 'DESC')->get();
+        $categorias = Categoria::where('id','>=', 2)->orderBy('id', 'ASC')->get();
         return view('categoria.categoria_index', compact('categorias'));
         //dd('correu tudo bem');
     }
@@ -32,11 +32,14 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-         'name' => 'required|min:5',
+         'nome' => 'required|min:5',
 
          ]);
         $categoria = new Categoria();
+
+       
         $categoria->nome = $request->name;
+
         $categoria->save();
 
         //dd($request->all());
