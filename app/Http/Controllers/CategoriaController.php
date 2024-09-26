@@ -36,12 +36,12 @@ class CategoriaController extends Controller
 
          ]);
         $categoria = new Categoria();
-        $categoria->name = $request->name;
+        $categoria->nome = $request->name;
         $categoria->save();
 
         //dd($request->all());
 
-    return redirect()->route('categoria_index')->with('mensagem', 'Categoria cadastrada com sucesso');
+    return redirect()->route('categoria.index')->with('mensagem', 'Categoria cadastrada com sucesso');
 
     }
 
@@ -82,7 +82,7 @@ class CategoriaController extends Controller
         $categoria->nome = $request->nome;
         $categoria->save();
 
-        return redirect()->route('categoria.index')->with('mensagem', 'Categoria criada com sucesso');
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria alterada com sucesso');
 
     }
 

@@ -34,8 +34,15 @@ class AnuncioController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        // 1 - pegar o conteudo do arquivo
+        $content = file_get_contents($request->file('imagem'));
+
+
         $validated = $request->validate([
             'categoria_id' => 'required',
+            'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
 
@@ -44,6 +51,7 @@ class AnuncioController extends Controller
         $anuncio = new Anuncio();
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
+        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
@@ -71,8 +79,9 @@ class AnuncioController extends Controller
     {
          //dd('Edit:' . $id);
 
-        $anuncios = Anuncio::find($id);
-        return view('anuncios.anuncios_edit', compact('anuncios'));
+        $categorias = Categoria::OrderBy('nome', 'ASC')->get();
+        $anuncio = Anuncio::find($id);
+        return view('anuncio.anuncio_edit', compact('anuncio', 'categorias'));
     }
 
     /**
@@ -80,18 +89,30 @@ class AnuncioController extends Controller
      */
     public function update(Request $request, string $id)
     {
+          // 1 - pegar o conteudo do arquivo
+        $content = file_get_contents($request->file('imagem'));
+
+
+
           //dd($id);
         $validated = $request->validate([
+            'categoria_id' => 'required',
+            'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
             'titulo' => 'required|min:5',
+            'conteudo' => 'required|min:5',
 
         ]);
 
 
-        $anuncios = Anuncio::find($id);
-        //$anuncio->anuncio = $request->anuncio;
-       // $anuncio->save();
+        $anuncio = Anuncio::find($id);
+        $anuncio->categoria_id = $request->categoria_id;
+        $anuncio->user_id = Auth::id();
+        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
+        $anuncio->titulo = $request->titulo;
+        $anuncio->conteudo = $request->conteudo;
+        $anuncio->save();
 
-        return redirect()->route('an$anuncio.index')->with('mensagem', 'Anuncio criada com sucesso');
+        return redirect()->route('anuncio.index')->with('mensagem', 'Alterado com sucesso');
 
     }
 
@@ -105,7 +126,7 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $anuncio->delete();
 
-        return redirect()->route('an$anuncio.index')->with('mensagem', 'Anuncio excluida com sucesso');
+        return redirect()->route('anuncio.index')->with('mensagem', 'Anuncio excluida com sucesso');
 
     }
 }

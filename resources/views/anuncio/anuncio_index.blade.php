@@ -42,7 +42,7 @@
 
                         <a href="{{ url('/anuncio/' . $value->id) . '/edit' }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
 
-                            <form method="POST" action="{{ url('/anuncio/'. $value->id )}}" onsubmit ="return ConfirmDelete()">
+                            <form method="POST" action='{{ url('/anuncio/'. $value->id )}}' onsubmit ="return ConfirmDelete()">
                                 @method('DELETE')
                                 @csrf
                                 <input type="submit" class="btn btn-danger btn-lg active"  value="Excluir">
