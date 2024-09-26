@@ -27,20 +27,22 @@
                 <table>
                     <tr>
                     <th>ID</th>
+                    <th>Categoria</th>
                     <th>Título</th>
                     <th>Conteúdo</th>
                     </tr>
 
                 @foreach($anuncios as $value)
                     <tr>
-                    <td>{{$value->id}}</td>
-                    <td>{{$value->titulo}}</td>
+                    <td>{{ $value->id }}</td>
+                    <td>{{ $value->categoria->nome }}</td>
+                    <td>{{ $value->titulo }}</td>
                     <td>
                         <a href="{{ url('/anuncio/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 
                         <a href="{{ url('/anuncio/' . $value->id) . '/edit' }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
 
-                            <form method="POST" action="{{ url('/anuncio/'. $value->id )}}" onsubmit ="return ConfirmDelete()">
+                            <form method="POST" action='{{ url('/anuncio/'. $value->id )}}' onsubmit ="return ConfirmDelete()">
                                 @method('DELETE')
                                 @csrf
                                 <input type="submit" class="btn btn-danger btn-lg active"  value="Excluir">

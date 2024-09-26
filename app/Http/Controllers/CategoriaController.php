@@ -36,7 +36,10 @@ class CategoriaController extends Controller
 
          ]);
         $categoria = new Categoria();
-        $categoria->nome = $request->nome;
+
+       
+        $categoria->nome = $request->name;
+
         $categoria->save();
 
         //dd($request->all());
@@ -82,7 +85,7 @@ class CategoriaController extends Controller
         $categoria->nome = $request->nome;
         $categoria->save();
 
-        return redirect()->route('categoria.index')->with('mensagem', 'Categoria criada com sucesso');
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria alterada com sucesso');
 
     }
 
