@@ -48,14 +48,14 @@
 
                             <label for="frame">Conteúdo</label><br>
 
-                            <textarea id="inp_editor1" name="conteudo" class="form-control" rows="4" cols="50">
-                                </textarea>
+                            <textarea id="inp_editor1" name="conteudo" class="form-control" rows="4" cols="50"></textarea>
 
 
 
                         </div>
 
-                        <input type="submit" value="Enviar">
+                            <input type="submit" value="Enviar">
+
                     </form>
 
 
