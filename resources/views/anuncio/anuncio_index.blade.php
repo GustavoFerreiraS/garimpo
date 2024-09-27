@@ -26,18 +26,18 @@
 
                 <table>
                     <tr>
-                    <th>ID</th>
-                    <th>Categoria</th>
-                    <th>Título</th>
-                    <th>Conteúdo</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Categoria</th>
+                    <th class="text-center">Título</th>
+                    <th class="text-center">Conteúdo</th>
                     </tr>
 
                 @foreach($anuncios as $value)
                     <tr>
-                    <td>{{ $value->id }}</td>
-                    <td>{{ $value->categoria->nome }}</td>
-                    <td>{{ $value->titulo }}</td>
-                    <td>
+                    <td >{{ $value->id }}</td>
+                    <td >{{ $value->categoria->nome }}</td>
+                    <td >{{ $value->titulo }}</td>
+                    <td class='d-flex justify-content-around'>
                         <a href="{{ url('/anuncio/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 
                         <a href="{{ url('/anuncio/' . $value->id) . '/edit' }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
