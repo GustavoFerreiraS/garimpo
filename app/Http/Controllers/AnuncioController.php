@@ -37,12 +37,12 @@ class AnuncioController extends Controller
 
 
         // 1 - pegar o conteudo do arquivo
-        $content = file_get_contents($request->file('imagem'));
+       // $content = file_get_contents($request->file('imagem'));
 
 
         $validated = $request->validate([
             'categoria_id' => 'required',
-            'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
+          //  'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
 
@@ -51,7 +51,7 @@ class AnuncioController extends Controller
         $anuncio = new Anuncio();
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
-        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
+       // $anuncio->imagem = base64_encode($content);// 3 - converter para base64
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
@@ -90,14 +90,14 @@ class AnuncioController extends Controller
     public function update(Request $request, string $id)
     {
           // 1 - pegar o conteudo do arquivo
-        $content = file_get_contents($request->file('imagem'));
+        //$content = file_get_contents($request->file('imagem'));
 
 
 
           //dd($id);
         $validated = $request->validate([
             'categoria_id' => 'required',
-            'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
+           // 'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
 
@@ -107,7 +107,7 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
-        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
+       // $anuncio->imagem = base64_encode($content);// 3 - converter para base64
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
