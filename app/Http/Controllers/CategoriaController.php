@@ -32,12 +32,12 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-         'nome' => 'required|min:5',
+        'nome' => 'required|min:5',
 
-         ]);
+    ]);
         $categoria = new Categoria();
 
-       
+
         $categoria->nome = $request->name;
 
         $categoria->save();
