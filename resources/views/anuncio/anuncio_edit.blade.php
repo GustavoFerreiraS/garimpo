@@ -13,7 +13,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                            @if ($errors->any())
+                        @if ($errors->any())
+
                             <div class="alert alert-danger">
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -21,6 +22,7 @@
                                     @endforeach
                                 </ul>
                             </div>
+
                         @endif
 
                     <form method="POST" action="{{ URL('/anuncio/' . $anuncio->id) }}"  enctype="multipart/form-data">
