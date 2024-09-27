@@ -7,16 +7,7 @@ use App\Http\Controllers\AnuncioController;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,8 +24,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-
     //-----------------CATEGORIA----------------//
     Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
 
@@ -48,13 +37,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
 
-    Route::delete('/anuncio/{id}', [AnuncioController::class, 'destroy'])->name('anuncio.destroy');
+    Route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('anuncio.destroy');
 
     //-----------------CATEGORIA----------------
-
-
-
-
 
 
 

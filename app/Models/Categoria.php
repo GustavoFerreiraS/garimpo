@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Categoria extends Model
+class Categoria extends Model implements Auditable
 {
     use HasFactory;
 
