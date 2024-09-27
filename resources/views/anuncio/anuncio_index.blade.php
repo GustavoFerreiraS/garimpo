@@ -37,6 +37,7 @@
                     <td >{{ $value->id }}</td>
                     <td >{{ $value->categoria->nome }}</td>
                     <td >{{ $value->titulo }}</td>
+                    
                     <td class='d-flex justify-content-around'>
                         <a href="{{ url('/anuncio/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 
