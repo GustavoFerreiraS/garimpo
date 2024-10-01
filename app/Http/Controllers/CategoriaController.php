@@ -12,7 +12,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::where('id','>=', 2)->orderBy('id', 'ASC')->get();
+        $categorias = Categoria::where('id','>=', 1)->orderBy('id', 'ASC')->get();
         return view('categoria.categoria_index', compact('categorias'));
         //dd('correu tudo bem');
     }
