@@ -90,8 +90,9 @@ class AnuncioController extends Controller
     public function update(Request $request, string $id)
     {
           // 1 - pegar o conteudo do arquivo
-        $content = file_get_contents($request->file('imagem'));
-
+          if($request->file('imagem')){
+                $content = file_get_contents($request->file('imagem'));
+          }
 
 
           //dd($id);
@@ -107,7 +108,8 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
-        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
+        if($request->file('imagem')){ // 3 - converter para base64
+      }
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
