@@ -108,7 +108,8 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
-        if($request->file('imagem')){ // 3 - converter para base64
+        if($request->file('imagem')){ 
+            $anuncio->imagem = base64_encode($content);  
       }
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
