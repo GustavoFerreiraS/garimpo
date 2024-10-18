@@ -1,12 +1,3 @@
-@extends('layouts.app')
-
-
-@section('content')
-
-
-
-
-
 <!DOCTYPE HTML>
 <!DOCTYPE html>
 <html>
@@ -100,11 +91,13 @@
       </symbol>
     </svg>
 
-    <div class="preloader-container">
+    
+    <!--<div class="preloader-container">
       <div class="preloader-text">
-        <span>S</span><span>H</span><span>O</span><span>P</span><span>L</span><span>I</span><span>T</span><span>E</span>
+        <span>G</span><span>A</span><span>R</span><span>I</span><span>M</span><span>P</span><span>O</span>
       </div>
     </div>
+    -->
 
     <div class="search-popup">
         <div class="search-popup-container">
@@ -396,9 +389,9 @@
               <div class="row d-flex flex-column-reverse flex-md-row align-items-center">
                 <div class="col-md-5 offset-md-1">
                   <div class="banner-content">
-                    <h2>Qualquer coisa</h2>
-                    <p>lallalalalalalallalalalalal</p>
-                    <a href="shop.html" class="btn mt-3">Shop Collection</a>
+                    <h2>Qualquer cioisa</h2>
+                    <p>Limited stocks available. Grab it now!</p>
+                    <a href="shop.html" class="btn mt-3">Comprar</a>
                   </div>
                 </div>
                 <div class="col-md-6 text-center">
@@ -449,12 +442,11 @@
       </div>
     </section>
 
-    
 
     <section id="categories">
       <div class="container">
         <div class="section-title overflow-hidden mb-4">
-          <h3 class="d-flex align-items-center">Categories</h3>
+          <h3 class="d-flex align-items-center">Categorias</h3>
         </div>
         <div class="row">
           <div class="col-md-2">
@@ -512,7 +504,7 @@
     <section id="best-selling-items" class="position-relative padding-large">
       <div class="container">
         <div class="section-title overflow-hidden mb-4">
-          <h3 class="d-flex align-items-center">Best selling items</h3>
+          <h3 class="d-flex align-items-center">PRODUTOS ANUNCIADOS</h3>
         </div>
         <div class="position-absolute top-50 end-0 pe-0 pe-xxl-5 me-0 me-xxl-5 swiper-next product-slider-button-next">
           <svg class="chevron-forward-circle d-flex justify-content-center align-items-center border rounded-3 p-2" width="55" height="55">
@@ -1051,126 +1043,9 @@
       </div>
     </section>
     
-    <section id="latest-posts" class="padding-large">
-      <div class="container">
-        <div class="section-title overflow-hidden mb-4">
-          <h3 class="d-flex align-items-center">Latest posts</h3>
-        </div>
-        <div class="row">
-          <div class="col-md-3 posts mb-4">
-            <a href="blog.html" class="btn rounded-0 py-0 px-2">Gadgets</a>
-            <img src="images/post-item1.jpg" alt="post image" class="img-fluid">
-            <h4 class="card-title mt-3 mb-2 text-uppercase text-dark"><a href="single-post.html">5 Must-Have Gadgets for the Modern Home</a></h4>
-            <p class="mb-2">Dive into the world of cutting-edge technology with our latest blog post, where we highlight five essential gadg</p>
-            <a class="text-decoration-underline" href="single-post.html">Read More</a>
-          </div>
-          <div class="col-md-3 posts mb-4">
-            <a href="blog.html" class="btn rounded-0 py-0 px-2">Phones</a>
-            <img src="images/post-item2.jpg" alt="post image" class="img-fluid">
-            <h4 class="card-title mt-3 mb-2 text-uppercase text-dark"><a href="single-post.html">Eco-Friendly Innovations Making a Difference</a></h4>
-            <p class="mb-2">Explore the intersection of technology and sustainability in our latest blog post. Learn about the innovative</p>
-            <a class="text-decoration-underline" href="single-post.html">Read More</a>
-          </div>
-          <div class="col-md-3 posts mb-4">
-            <a href="blog.html" class="btn rounded-0 py-0 px-2">Tech</a>
-            <img src="images/post-item3.jpg" alt="post image" class="img-fluid">
-            <h4 class="card-title mt-3 mb-2 text-uppercase text-dark"><a href="single-post.html">The Future of Wearable Tech: Trends to Watch</a></h4>
-            <p class="mb-2">Stay ahead of the curve with our insightful look into the rapidly evolving landscape of wearable technology.</p>
-            <a class="text-decoration-underline" href="single-post.html">Read More</a>
-          </div>
-          <div class="col-md-3 posts mb-4">
-            <a href="blog.html" class="btn rounded-0 py-0 px-2">Digital Watch</a>
-            <img src="images/post-item4.jpg" alt="post image" class="img-fluid">
-            <h4 class="card-title mt-3 mb-2 text-uppercase text-dark"><a href="single-post.html">Top Apps and Tools for Remote Work</a></h4>
-            <p class="mb-2">In today's remote work environment, productivity is key. Discover the top apps and tools that can help you stay</p>
-            <a class="text-decoration-underline" href="single-post.html">Read More</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-    <section id="instagram" class="padding-large">
-      <div class="container">
-        <div class="text-center mb-4">
-          <h3>Instagram #shoplite</h3>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item1.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>
-          </div>
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item2.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>
-          </div>
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item3.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>            
-          </div>
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item4.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>            
-          </div>
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item5.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>
-          </div>
-          <div class="col-md-2">
-            <figure class="instagram-item position-relative rounded-3">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-                <img src="images/insta-item6.jpg" alt="instagram" class="img-fluid rounded-3 insta-image">
-              </a>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <footer id="footer" class="overflow-hidden">
       <div class="container">
@@ -1313,7 +1188,3 @@
     <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
-
-
-
-@endsection
