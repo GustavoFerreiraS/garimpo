@@ -14,7 +14,8 @@ class AnuncioController extends Controller
      */
     public function index()
     {
-        $anuncios = Anuncio::orderBy('titulo', 'ASC')->get();
+        $user_id = Auth::user()->id;
+        $anuncios = Anuncio::where('user_id , $user_id')->orderBy('titulo', 'ASC')->get();
 
         return view('anuncio.anuncio_index', compact('anuncios'));
         //dd('correu tudo bem');
@@ -77,7 +78,12 @@ class AnuncioController extends Controller
      */
     public function edit(string $id)
     {
-         //dd('Edit:' . $id);
+        $user_id = Auth::user()->id;
+        $doUsuario = Anuncio::where('id', $id)->where('user_id , $user_id')->exists();
+        if(!$doUsuario){
+            return redirect()->route('anuncio.index')->with('mensagem', ' Você não tem permissão para alterar essa postagem');
+
+        }
 
         $categorias = Categoria::OrderBy('nome', 'ASC')->get();
         $anuncio = Anuncio::find($id);
@@ -89,10 +95,16 @@ class AnuncioController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        $user_id = Auth::user()->id;
+        $doUsuario = Anuncio::where('id', $id)->where('user_id , $user_id')->exists();
+        if(!$doUsuario){
+            return redirect()->route('anuncio.index')->with('mensagem', ' Você não tem permissão para alterar essa postagem');
+
           // 1 - pegar o conteudo do arquivo
-          if($request->file('imagem')){
+        if($request->file('imagem')){
                 $content = file_get_contents($request->file('imagem'));
-          }
+        }
 
 
           //dd($id);
@@ -108,28 +120,31 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $anuncio->categoria_id = $request->categoria_id;
         $anuncio->user_id = Auth::id();
-        if($request->file('imagem')){ 
-            $anuncio->imagem = base64_encode($content);  
-      }
+        if($request->file('imagem')){
+            $anuncio->imagem = base64_encode($content);
+        }
+
         $anuncio->titulo = $request->titulo;
         $anuncio->conteudo = $request->conteudo;
         $anuncio->save();
 
         return redirect()->route('anuncio.index')->with('mensagem', 'Alterado com sucesso');
 
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    //
     public function destroy(string $id)
     {
-         // dd('Destroy:' . $id);
-
         $anuncio = Anuncio::find($id);
         $anuncio->delete();
 
         return redirect()->route('anuncio.index')->with('mensagem', 'Anuncio excluida com sucesso');
 
     }
+
+
 }

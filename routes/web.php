@@ -17,8 +17,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',[FeedController::class, 'welcome'])->name('welcome');
 
 Route::get('/feed/categoria', [FeedController::class, 'categoria'])->name('feed.categoria');
-
 Route::get('/feed/categoria/{id}', [FeedController::class, 'categoriaById'])->name('feed.categoriaById');
+
+Route::get('/feed/autor', [FeedController::class, 'autor'])->name('feed.autor');
+Route::get('/feed/autor/{id}', [FeedController::class, 'autorById'])->name('feed.autorById');
+
+
+
+
 
 Auth::routes();
 
