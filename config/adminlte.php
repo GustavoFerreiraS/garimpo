@@ -332,6 +332,7 @@ return [
             'text' => 'Categorias',
             'url' => 'categoria',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'is_admin',
         ],
         [
             'text' => 'Anúncio de Produto',

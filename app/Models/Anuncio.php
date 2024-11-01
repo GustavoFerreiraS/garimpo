@@ -29,6 +29,6 @@ class Anuncio extends Model implements Auditable
 
     public function comentarios(): HasMany
     {
-        return $this->hasMany(Comentarios::class, 'id', 'anuncio_id');
+        return $this->hasMany(Comentario::class, 'anuncio_id', 'id');
     }
 }

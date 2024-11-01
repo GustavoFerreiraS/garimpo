@@ -15,7 +15,7 @@ class AnuncioController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $anuncios = Anuncio::where('user_id , $user_id')->orderBy('titulo', 'ASC')->get();
+        $anuncios = Anuncio::where('user_id' , $user_id)->orderBy('titulo', 'ASC')->get();
 
         return view('anuncio.anuncio_index', compact('anuncios'));
         //dd('correu tudo bem');
@@ -79,7 +79,7 @@ class AnuncioController extends Controller
     public function edit(string $id)
     {
         $user_id = Auth::user()->id;
-        $doUsuario = Anuncio::where('id', $id)->where('user_id , $user_id')->exists();
+        $doUsuario = Anuncio::where('id', $id)->where('user_id' , $user_id)->exists();
         if(!$doUsuario){
             return redirect()->route('anuncio.index')->with('mensagem', ' Você não tem permissão para alterar essa postagem');
 

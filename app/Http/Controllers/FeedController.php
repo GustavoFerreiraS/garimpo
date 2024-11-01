@@ -34,4 +34,11 @@ class FeedController extends Controller
         return view('feed.autorById', compact('anuncios'));
     }
 
+    public function comentario($id){
+        $anuncio = Anuncio::find($id);
+        return view('feed.comentario', compact('anuncio'));
+    }
+
+
+
 }

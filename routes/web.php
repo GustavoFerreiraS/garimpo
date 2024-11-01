@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AnuncioController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ComentarioController;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,9 @@ Route::get('/feed/categoria/{id}', [FeedController::class, 'categoriaById'])->na
 Route::get('/feed/autor', [FeedController::class, 'autor'])->name('feed.autor');
 Route::get('/feed/autor/{id}', [FeedController::class, 'autorById'])->name('feed.autorById');
 
+Route::get('/feed/anuncio/{id}/comentario', [FeedController::class, 'comentario'])->name('comentario');
+
+Route::post('comentario', [ComentarioController::class, 'store'])->name('comentario.store');
 
 
 
@@ -38,19 +42,22 @@ Route::middleware(['auth'])->group(function () {
 
 
     //-----------------CATEGORIA----------------//
-    Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
+    Route::middleware(['can:is_admin'])->group(function () {
 
-    Route::get('/categoria/create',[CategoriaController::class, 'create'])->name('categoria.create');
+        Route::get('/categoria', [CategoriaController::class, 'index'])->middleware('can:is_admin')->name('categoria.index');
 
-    Route::post('/categoria', [CategoriaController::class,'store'])->name('categoria.store');
+        Route::get('/categoria/create',[CategoriaController::class, 'create'])->name('categoria.create');
 
-    Route::get('/categoria/{id}',[CategoriaController::class, 'show'])->name('categoria.show');
+        Route::post('/categoria', [CategoriaController::class,'store'])->name('categoria.store');
 
-    Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
+        Route::get('/categoria/{id}',[CategoriaController::class, 'show'])->name('categoria.show');
 
-    Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
+        Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
 
-    Route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('anuncio.destroy');
+        Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
+
+        Route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('anuncio.destroy');
+    });
 
     //-----------------CATEGORIA----------------
 
