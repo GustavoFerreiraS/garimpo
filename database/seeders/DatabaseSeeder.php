@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             //UsuarioSeeder::class,
             AnuncioSeeder::class,
             ComentarioSeeder::class,
+            CurtidaSeeder::class,
+            DenunciarAnuncioSeeder::class,
 
         ]);
 

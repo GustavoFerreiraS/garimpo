@@ -31,4 +31,9 @@ class Anuncio extends Model implements Auditable
     {
         return $this->hasMany(Comentario::class, 'anuncio_id', 'id');
     }
+
+    public function curtidas(): HasMany
+    {
+        return $this->hasMany(Curtida::class, 'anuncio_id', 'id');
+    }
 }

@@ -5,20 +5,23 @@
 
 <p>{{ $anuncio->titulo }}</p>
 
-<form method='POST' action="{{ URL('/comentario') }}">
+@auth
 
-    @csrf
 
-    <div class="form-group">
-        <label for="frame">Nome:</label><br>
-        <input type="hidden" name="anuncio_id" value="{{ $anuncio->id }}">
-        <textarea id="w3review" class="form-control" name="conteudo" rows="4" cols="50"></textarea>
+    <form method='POST' action="{{ URL('/comentario') }}">
 
-    </div>
+        @csrf
 
-    <input type="submit" value="Enviar">
-</form>
+        <div class="form-group">
+            <label for="frame">Nome:</label><br>
+            <input type="hidden" name="anuncio_id" value="{{ $anuncio->id }}">
+            <textarea id="w3review" class="form-control" name="conteudo" rows="4" cols="50"></textarea>
+        </div>
 
+        <input type="submit" value="Enviar">
+    </form>
+
+@endauth
 
 @foreach ($anuncio->comentarios as $value)
     <p>  >>>{{ $value->conteudo }} </p>
