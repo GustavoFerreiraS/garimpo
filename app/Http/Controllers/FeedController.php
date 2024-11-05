@@ -6,6 +6,7 @@ use App\Models\Anuncio;
 use App\Models\Categoria;
 use App\Models\User;
 use App\Models\Curtida;
+use App\Models\denunciarAnuncio;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,25 @@ class FeedController extends Controller
             $curtida = Curtida::where('anuncio_id', $id)->where('user_id', $user_id)->first();
             $curtida->delete();
         }
+
+        return back()->withInput();
+
+    }
+
+    public function denunciarAnuncio($id){
+        $anuncio = Anuncio::find($id);
+        return view('feed.denunciarAnuncio', compact('anuncio'));
+    }
+
+    public function denunciarAnuncioStore(Request $request){
+
+        $user_id = Auth::id(); 
+        
+        $DenunciarAnunciar = new DenunciarAnuncio;
+        $DenunciarAnunciar->anuncio_id = $request->anuncio_id;
+        $DenunciarAnunciar->user_id = $user_id;
+        $DenunciarAnunciar->conteudo = $request->conteudo;
+        $DenunciarAnunciar->save();
 
         return back()->withInput();
     }

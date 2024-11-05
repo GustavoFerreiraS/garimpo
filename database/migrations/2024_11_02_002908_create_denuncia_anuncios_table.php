@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('anuncio_id');
             $table->bigInteger('user_id');
             $table->text('conteudo');
-            $table->boolean('status')->default(false);
+            $table->enum('status', ['AGUARDANDO', 'ACEITA', 'NEGADO'])->default('AGUARDANDO');
             $table->timestamps();
         });
     }

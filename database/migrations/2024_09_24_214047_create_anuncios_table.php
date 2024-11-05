@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('imagem')->nullable(); // Para armazenar o caminho da imagem
             $table->string('titulo');
             $table->longText('conteudo');
+            $table->boolean('status')->default(true);
             $table->timestamps();
 
 

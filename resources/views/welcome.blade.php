@@ -30,7 +30,7 @@
             <li><a href="{{ url('/feed/categoria/' . $value->id)  }}">{{ $value->categoria->nome }}</a></li>
             <li><a href="{{ url('/feed/curtida/' . $value->id) }}" class="icon solid fa-heart">{{ $value->curtidas->count() }}</a></li>
             <li><a href="{{ url('/feed/anuncio/' . $value->id . '/comentario') }}" class="icon solid fa-comment">{{ $value->comentarios->count() }}</a></li>
-            <li><a href="{{ url('/feed/denunciaAnúncio' . $value->id) }}" class="icon solid fa-comment"> Denunciar anúncio</a></li>
+            <li><a href="{{ url('/feed/denunciarAnuncio/' . $value->id) }}" class="icon solid fa-comment"> Denunciar anúncio</a></li>
         </ul>
     </footer>
 

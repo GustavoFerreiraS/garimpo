@@ -334,6 +334,14 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'can' => 'is_admin',
         ],
+
+        [
+            'text' => 'Moderação Denúncias de Anuncio',
+            'url' => 'ModeracaoDenunciaAnuncio',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'is_admin',
+        ],
+
         [
             'text' => 'Anúncio de Produto',
             'url' => 'anuncio',

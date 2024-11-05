@@ -8,6 +8,8 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\ComentarioController;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ModeracaoController;
+
 
 
 
@@ -29,15 +31,17 @@ Route::post('comentario', [ComentarioController::class, 'store'])->name('comenta
 
 Route::get('/feed/curtida/{id}', [FeedController::class, 'curtida'])->middleware('auth')->name('curtida');
 
+Route::get('/feed/denunciarAnuncio/{id}', [FeedController::class, 'denunciarAnuncio'])->middleware('auth')->name('denunciarAnuncio');
+
+Route::post('/feed/denunciarAnuncio', [FeedController::class, 'denunciarAnuncioStore'])->middleware('auth')->name('denunciarAnuncioStore');
+
 
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
-    //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-    //Auth::routes();
+    Route::get('ModeracaoDenunciaAnuncio',[ModeracaoController::class, 'ModeracaoDenunciaAnuncio'])->name('ModeracaoDenunciaAnuncio');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
