@@ -42,6 +42,9 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
     Route::get('ModeracaoDenunciaAnuncio',[ModeracaoController::class, 'ModeracaoDenunciaAnuncio'])->name('ModeracaoDenunciaAnuncio');
+    Route::get('ModeracaoDenunciaAnuncioAceito/{id}',[ModeracaoController::class, 'ModeracaoDenunciaAnuncioAceito'])->name('ModeracaoDenunciaAnuncioAceito');
+    Route::get('ModeracaoDenunciaAnuncioNegado/{id}',[ModeracaoController::class, 'ModeracaoDenunciaAnuncioNegado'])->name('ModeracaoDenunciaAnuncioNegado');
+
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

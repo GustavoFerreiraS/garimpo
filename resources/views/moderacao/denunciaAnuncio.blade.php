@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-               
+
                 @if(session('mensagem'))
                 <br>
                     <div class="alert alert-success">
@@ -23,23 +23,25 @@
                     <th>Anuncio -  Autor</th>
                     <th>Denunciante</th>
                     <th>Conteudo da denúncia</th>
+                    <th>Status</th>
                     <th class='text-center'>Ações</th>
                     </tr>
 
                 @foreach($denunciaAnuncio as $value)
                     <tr>
-                    <td>{{$value->id}}</td>
-                    <td>{{$value->anuncio->titulo}}</td>
-                    <td>{{$value->anuncio->autor->name}}</td>
-                    <td>{{$value->denunciante->name}}</td>
-                    <td>{{$value->conteudo}}</td>
+                    <td>{{  $value->id }}</td>
+                    <td>{{  $value->anuncio->titulo }}</td>
+                    <td>{{  $value->anuncio->autor->name }}</td>
+                    <td>{{  $value->denunciante->name }}</td>
+                    <td>{{  $value->conteudo }}</td>
+                    <td>{{ $value->status }}</td>
                     <td class='d-flex justify-content-around'>
-                        <a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
+                        <a href="{{ url('/ModeracaoDenunciaAnuncioAceito/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ACEITO</a>
+                        <a href="{{ url('/ModeracaoDenunciaAnuncioNegado/' . $value->id) }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">NEGADO</a>
 
-                        <a href="{{ url('/categoria/' . $value->id) . '/edit' }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
 
-                    
-                            
+
+
                         </td>
                     </tr>
                 @endforeach

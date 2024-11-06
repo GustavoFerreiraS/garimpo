@@ -16,7 +16,7 @@ class FeedController extends Controller
 {
 
     public function welcome(){
-        $anuncios = Anuncio::orderBy('id', 'DESC')->get();
+        $anuncios = Anuncio::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('welcome', compact('anuncios'));
     }
 
@@ -72,8 +72,8 @@ class FeedController extends Controller
 
     public function denunciarAnuncioStore(Request $request){
 
-        $user_id = Auth::id(); 
-        
+        $user_id = Auth::id();
+
         $DenunciarAnunciar = new DenunciarAnuncio;
         $DenunciarAnunciar->anuncio_id = $request->anuncio_id;
         $DenunciarAnunciar->user_id = $user_id;
