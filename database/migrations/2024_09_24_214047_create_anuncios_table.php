@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('categoria_id');
             $table->BigInteger('user_id'); // Relacionamento com o usuário
             $table->longText('imagem')->nullable(); // Para armazenar o caminho da imagem
-            $table->string('titulo');
+            $table->longText('titulo');
             $table->longText('conteudo');
             $table->boolean('status')->default(true);
             $table->timestamps();

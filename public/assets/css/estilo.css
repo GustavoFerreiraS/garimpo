@@ -1,0 +1,278 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none; /* Remove sublinhado */
+    color: inherit; /* Mantém a cor padrão do texto */
+    display: flex; /* Faz o link ocupar todo o espaço do card */
+}
+
+.row {
+    text-align: center;
+    display: flex;
+    margin: 80px;
+
+}
+
+.lead {
+    margin: 80px;
+}
+
+.container-a{
+    margin: 30px;
+    padding: 50px;
+}
+
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.produtosMaisProcurados{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+    width: 100%;
+}
+
+
+/* Estilo do link como card */
+.card-link {
+    text-decoration: none; /* Remove sublinhado */
+    color: inherit; /* Mantém a cor padrão do texto */
+    display: flex; /* Faz o link ocupar todo o espaço do card */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+}
+.hover-card {
+    display: inline-block;
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-card img {
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+}
+
+.hover-card:hover img {
+    transform: translateY(-5px); /* Move ligeiramente para cima */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+}
+
+.hover-card img.rounded-circle {
+    border-radius: 50%; /* Garante o formato circular */
+    background-color: #fff; /* Define uma cor de fundo */
+}
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+}
+
+.navbar-brand img {
+    height: 50px; /* Ajusta a altura do logo */
+    width: auto; /* Mantém proporção */
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Cor ao passar o mouse */
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(147 51 234);
+    color: #fff;
+    border-color: rgb(153, 78, 222);
+}
+.rodape {
+    background-color: #f8f9fa; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    border-top: 1px solid #ddd; /* Linha divisória no topo */
+}
+
+.rodape h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.rodape ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.rodape a:hover {
+    color: #007bff; /* Cor de hover */
+}
+
+.rodape img {
+    border-radius: 8px; /* Bordas arredondadas na imagem */
+}
+
+
+
+.vendedoresDaSemana{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+    width: 100%;
+}
+
+
+/* Estilos dos Cards */
+.card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-radius: 8px;
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.card-body {
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+.card-footer {
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.card-footer .btn {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Botão com estilo secundário */
+.btn-secondary {
+    text-decoration: none;
+    background-color: rgb(147 51 234);
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    transition: background-color 0.5s;
+
+}
+
+.btn-secondary:hover {
+    background-color:  rgb(153, 78, 222);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 767px) {
+    .row-cols-md-4 .col {
+        margin-bottom: 20px;
+    }
+}
+
+.banner {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.banner img {
+    width: 40%;
+    height: 400px;
+    object-fit: cover;
+}
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.seller-profile {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.similar-product {
+    margin-bottom: 20px;
+}
+
+.product-description {
+    margin-bottom: 30px;
+}

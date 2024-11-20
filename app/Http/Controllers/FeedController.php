@@ -17,7 +17,7 @@ class FeedController extends Controller
 
     public function welcome(){
         $anuncios = Anuncio::where('status', 1)->orderBy('id', 'DESC')->get();
-        return view('welcome', compact('anuncios'));
+        return view( 'welcome', compact('anuncios'));
     }
 
     public function categoria(){
