@@ -23,5 +23,8 @@ class CategoriaSeeder extends Seeder
         DB::table('categorias')->insert([
             'nome' => 'Televisão',
         ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Móveis',
+        ]);
     }
 }

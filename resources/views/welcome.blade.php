@@ -11,17 +11,17 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img src="assets/imagens/Primeira.png" class="d-block w-100" alt="Primeira imagem">
+                    <img src="assets/imagens/Banner/Banner1.jpg" class="d-block w-100" alt="Primeira imagem">
                 </div>
 
             <!-- Segundo item -->
             <div class="carousel-item">
-            <img src="assets/imagens/Segunda.png" class="d-block w-100" alt="Segunda imagem">
+            <img src="assets/imagens/Banner/Banner2.jpg" class="d-block w-100 " alt="Segunda imagem">
             </div>
 
             <!-- Terceiro item -->
             <div class="carousel-item">
-            <img src="assets/imagens/Terceira.png" class="d-block w-100" alt="Terceira imagem">
+            <img src="assets/imagens/Banner/Banner3.jpg" class="d-block w-100" alt="Terceira imagem">
             </div>
         </div>
 

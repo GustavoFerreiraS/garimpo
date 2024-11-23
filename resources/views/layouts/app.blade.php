@@ -13,6 +13,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="{{ url('assets/css/estilo.css') }}"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 	</head>
 	<body class="single is-preload">
 
@@ -27,8 +29,8 @@
                             </button>
                             <!-- Logo e links da navbar -->
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                                <a href="#" class="navbar-brand">
-                                    <img src="assets/imagens/Logo2.png" alt="Logo" width="80px">
+                                <a href="{{ url('/') }}" class="navbar-brand">
+                                    <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo" width="80px">
                                 </a>
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
@@ -62,23 +64,28 @@
                                 <div class="row p-5 text-center text-md-start">
                                     <!-- Logo e Descrição -->
                                     <div class="col-md-3 mt-3">
-                                        <a class="navbar-brand" href="#">
-                                            <img src="assets/imagens/Logo.png" alt="Logo" width="100" height="100">
+                                        <a class="navbar-brand" href="{{ url('/') }}">
+                                            <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo" width="100" height="100">
                                         </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     </div>
                                     <!-- Links -->
                                     <div class="col-md-3 mt-3">
-                                        <h3 class="fs-6 ms-3 text-uppercase">Links</h3>
+                                        <h3 class="fs-6 ms-3 text-uppercase">categorias</h3>
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
                                                 <a class="nav-link fw-lighter text-black" href="celular.blade.php">Celular</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">###</a>
+                                                <a class="nav-link fw-lighter text-black" href="#">Televisão</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">##</a>
+                                                <a class="nav-link fw-lighter text-black" href="#">Roupa</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link fw-lighter text-black" href="#">Móveis</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link fw-lighter text-black" href="#">Mais categorias</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -87,13 +94,19 @@
                                         <h3 class="fs-6 ms-3 text-uppercase">Menu</h3>
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">##</a>
+                                                <a class="nav-link fw-lighter text-black" href="#">Login</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="sobre.html">##</a>
+                                                <a class="nav-link fw-lighter text-black" href="sobre.html">Anunciar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">##</a>
+                                                <a class="nav-link fw-lighter text-black" href="#">Meus Favoritos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link fw-lighter text-black" href="#">Sobre</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link fw-lighter text-black" href="#">Contato</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -101,17 +114,27 @@
                                     <div class="col-md-3 mt-3">
                                         <h3 class="fs-6 ms-3 text-uppercase">Redes Sociais</h3>
                                         <ul class="nav justify-content-center justify-content-md-start">
+                                            <!-- Facebook -->
                                             <li class="nav-item">
-                                                <a class="nav-link text-primary fs-3" href="#"> <i class="bi bi-facebook"></i></a>
+                                                <a class="nav-link fs-3" href="https://www.facebook.com" target="_blank">
+                                                    <i class="bi bi-facebook" style="font-size: 30px; margin-right: 8px;"></i>
+                                                </a>
                                             </li>
+                                            <!-- X (Antigo Twitter) -->
                                             <li class="nav-item">
-                                                <a class="nav-link text-info fs-3" href="#"><i class="bi bi-twitter"></i></a>
+                                                <a class="nav-link fs-3" href="https://x.com" target="_blank">
+                                                    <i class="bi bi-x" style="font-size: 30px; margin-right: 8px;"></i>
+                                                </a>
                                             </li>
+                                            <!-- Instagram -->
                                             <li class="nav-item">
-                                                <a class="nav-link text-danger fs-3" href="#"><i class="bi bi-instagram"></i></a>
+                                                <a class="nav-link fs-3" href="https://www.instagram.com" target="_blank">
+                                                    <i class="bi bi-instagram" style="font-size: 30px; margin-right: 8px;"></i>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
+
                                 </div>
                             </div>
                         </footer>

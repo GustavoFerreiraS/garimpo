@@ -13,7 +13,7 @@
                 @foreach ($anuncios as $value)
                     <div class="col">
                         <div class="card h-100">
-                            <img src="data:image/png;base64, {{ $value->imagem }}" class="card-img-top" alt="Mariana Lois">
+                            <img src="data:image/png;base64, {{ $value->imagem }}" class="card-img-top" alt="TTT">
                             <div class="card-body  flex-grow-1">
                                 <h5 class="card-title">{{ $value->titulo }}</h5>
                             </div>

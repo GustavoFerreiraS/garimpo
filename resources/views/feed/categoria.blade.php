@@ -9,7 +9,6 @@
             @foreach ($categorias as $value)
                 <div class="col">
                     <div class="card h-100">
-                        <img src="assets/imagens/vendedora2.jpg" class="card-img-top" alt="Mariana Lois">
                         <div class="card-body  flex-grow-1">
                             <h5 class="card-title">{{ $value->nome }}</h5>
                         </div>
