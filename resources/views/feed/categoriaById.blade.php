@@ -18,7 +18,7 @@
                                 <h5 class="card-title">{{ $value->titulo }}</h5>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-secondary w-100" href="{{ url('/feed/categoria/' .  $value->id) }}">Tenho interesse</a>
+                                <a class="btn btn-secondary w-100" href="{{ route('anuncio.show', $value->id) }}">Tenho interesse</a>
                             </div>
                         </div>
                     </div>

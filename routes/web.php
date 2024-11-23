@@ -19,6 +19,8 @@ use App\Http\Controllers\ModeracaoController;
 
 Route::get('/',[FeedController::class, 'welcome'])->name('welcome');
 
+  //-----------------FEED----------------//
+
 Route::get('/feed/categoria', [FeedController::class, 'categoria'])->name('feed.categoria');
 Route::get('/feed/categoria/{id}', [FeedController::class, 'categoriaById'])->name('feed.categoriaById');
 
@@ -35,7 +37,14 @@ Route::get('/feed/denunciarAnuncio/{id}', [FeedController::class, 'denunciarAnun
 
 Route::post('/feed/denunciarAnuncio', [FeedController::class, 'denunciarAnuncioStore'])->middleware('auth')->name('denunciarAnuncioStore');
 
+  //-----------------FEED----------------//
 
+  //-----------------VER ANUCIO E CATEGORIA----------------//
+
+Route::get('/anuncio/{id}', [AnuncioController::class, 'show'])->name('anuncio.show');
+Route::get('/categoria/{id}',[CategoriaController::class, 'show'])->name('categoria.show');
+
+  //-----------------VER ANUCIO E CATEGORIA----------------//
 
 Auth::routes();
 
@@ -58,7 +67,6 @@ Route::middleware(['auth'])->group(function () {
 
         Route::post('/categoria', [CategoriaController::class,'store'])->name('categoria.store');
 
-        Route::get('/categoria/{id}',[CategoriaController::class, 'show'])->name('categoria.show');
 
         Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
 
@@ -79,7 +87,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/anuncio', [AnuncioController::class, 'store'])->name('anuncio.store');
 
-    Route::get('/anuncio/{id}', [AnuncioController::class, 'show'])->name('anuncio.show');
 
     Route::get('/anuncio/{id}/edit', [AnuncioController::class, 'edit'])->name('anuncio.edit');
 
