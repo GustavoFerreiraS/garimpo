@@ -37,8 +37,14 @@
                                         <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Categorias</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
+                                        <a class="nav-link " aria-current="page" href="{{ url('') }}">Chat</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " aria-current="page" href="{{ url('/login') }}">Login</a>
+                                    </li>
+                                    <!--<li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
+                                    </li>-->
                                 </ul>
                             </div>
                             <!-- Campo de busca e botão de login -->
@@ -46,7 +52,7 @@
                                 <input class="form-control me-2" type="search" placeholder="Buscar 'Camisa de time'" aria-label="Search">
                                 <button class="btn btn-secondary" type="submit">Busca</button>
                             </form>
-                            <a button class="btn btn-secondary" href="{{ url('/login') }}">Login</a>
+                            <a button class="btn btn-secondary " href="{{ url('/login') }}">Anunciar </a>
                         </div>
                     </nav>
                 </header>
@@ -73,19 +79,19 @@
                                         <h3 class="fs-6 ms-3 text-uppercase">categorias</h3>
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="celular.blade.php">Celular</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/1') }}">Celular</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Televisão</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/3') }}">Televisão</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Roupa</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/2') }}">Roupa</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Móveis</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/4') }}">Móveis</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Mais categorias</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Mais categorias</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -94,19 +100,19 @@
                                         <h3 class="fs-6 ms-3 text-uppercase">Menu</h3>
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Login</a>
+                                                <a class="nav-link " aria-current="page" href="{{ url('/login') }}">Login</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="sobre.html">Anunciar</a>
+                                                <a class="nav-link " aria-current="page" href="sobre.html">Anunciar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Meus Favoritos</a>
+                                                <a class="nav-link " aria-current="page" href="#">Meus Favoritos</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Sobre</a>
+                                                <a class="nav-link " aria-current="page" href="#">Sobre</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-lighter text-black" href="#">Contato</a>
+                                                <a class="nav-link " aria-current="page" href="#">Contato</a>
                                             </li>
                                         </ul>
                                     </div>
