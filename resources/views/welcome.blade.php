@@ -162,97 +162,10 @@
 </div>
 <!--fim Produtos mais procurados-->
 
-<!--Vendedores da seamana-->
-<div class="container my-5">
-
-    <!-- Cards de Vendedores -->
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="vendedoresDaSemana">
-            <h3>Vendedores da Semana</h3>
-        </div>
-        @foreach ( $anuncios as $value )
-        <div class="col">
-            <div class="card h-100">
-                <img src="assets/imagens/vendedora.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title"><span class="name">{{ $value->autor->name }}</span></h5>
-                    <p class="card-text">Há 5 anos vendendo no Garimpo.com</p>
-                    <h5 class="text-muted">"Ótimo site, de muita confiança!!"</h5>
-                </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-secondary w-100">Ver Perfil</button>
-                </div>
-            </div>
-        </div>
-        @endforeach
-
-    </div>
-
-
-</div>
-<!--fim Vendedores da seamana-->
 
 
 </article>
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <article class="post">
-
-    <header>
-
-
-
-        <div class="title">
-            <h2><a href="#">{{ $value->titulo }}</a></h2>
-            <p>Lorem ipsum dolor amet nullam consequat etiam feugiatavafasdfaf</p>
-        </div>
-
-        <div class="meta">
-            <time class="published" datetime="2015-11-01">{{ $value->created_at }}</time>
-            <a href="#" class="author"><span class="name">{{ $value->autor->name }}</span><img src="images/avatar.jpg" alt="" /></a>
-        </div>
-    </header>
-    <span class="image featured"><img src="data:image/png;base64, {{ $value->imagem }}" alt="Imagem" /></span>
-    <p>{!! $value->conteudo !!}</p>
-
-
-
-
-    <footer>
-        <ul class="stats">
-            <li><a href="{{ url('/feed/categoria/' . $value->id)  }}">{{ $value->categoria->nome }}</a></li>
-            <li><a href="{{ url('/feed/curtida/' . $value->id) }}" class="icon solid fa-heart">{{ $value->curtidas->count() }}</a></li>
-            <li><a href="{{ url('/feed/anuncio/' . $value->id . '/comentario') }}" class="icon solid fa-comment">{{ $value->comentarios->count() }}</a></li>
-            <li><a href="{{ url('/feed/denunciarAnuncio/' . $value->id) }}" class="icon solid fa-comment"> Denunciar anúncio</a></li>
-        </ul>
-    </footer>
-
-
-
-
-
-
-</article>
-
--->
-
-
 
 

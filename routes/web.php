@@ -9,6 +9,11 @@ use App\Http\Controllers\ComentarioController;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ModeracaoController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Models\Anuncio;
+use App\Http\Controllers\Auth\LoginController;
 
 
 
@@ -46,6 +51,38 @@ Route::get('/categoria/{id}',[CategoriaController::class, 'show'])->name('catego
 
   //-----------------VER ANUCIO E CATEGORIA----------------//
 
+
+
+ //-----------------ESQUECI SENHA ----------------//
+
+Route::get('esqueci-senha', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+
+   //-----------------ESQUECI SENHA----------------//
+
+
+   //-----------------CRIAR CONTA---------------//
+Route::get('/', function () {
+    return view('welcome'); // Exibe a página inicial
+})->name('welcome');
+
+
+
+
+Route::post('/register', [RegisterController::class, 'register']);
+
+
+Route::get('/register', function () {
+    return view('auth.register'); // Exibe o formulário de registro
+})->name('register');
+
+Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+
+
+
+   //-----------------CRIAR CONTA---------------//
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -55,7 +92,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('ModeracaoDenunciaAnuncioNegado/{id}',[ModeracaoController::class, 'ModeracaoDenunciaAnuncioNegado'])->name('ModeracaoDenunciaAnuncioNegado');
 
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+
 
 
     //-----------------CATEGORIA----------------//
@@ -75,7 +115,18 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('anuncio.destroy');
     });
 
+
+
     //-----------------CATEGORIA----------------
+
+
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+
+
+
+
 
 
 
@@ -86,7 +137,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/anuncio/create', [AnuncioController::class, 'create'])->name('anuncio.create');
 
     Route::post('/anuncio', [AnuncioController::class, 'store'])->name('anuncio.store');
-
 
     Route::get('/anuncio/{id}/edit', [AnuncioController::class, 'edit'])->name('anuncio.edit');
 

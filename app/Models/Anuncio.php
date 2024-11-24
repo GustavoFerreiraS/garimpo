@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use OwenIt\Auditing\Contracts\Auditable;
+use App\Models\Categoria;
+
 
 class Anuncio extends Model implements Auditable
 {
@@ -15,15 +17,15 @@ class Anuncio extends Model implements Auditable
 
     protected $table ="anuncios";
 
-    public function autor(): HasOne
+    public function autor()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->HasOne(User::class, 'id', 'user_id');
 
     }
 
-    public function categoria(): HasOne
+    public function categoria()
     {
-        return $this->hasOne(Categoria::class, 'id', 'categoria_id');
+        return $this->HasOne(Categoria::class, 'id', 'categoria_id');
 
     }
 

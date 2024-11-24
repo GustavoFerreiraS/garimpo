@@ -19,4 +19,10 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    // Este método vai exibir o formulário de recuperação de senha
+    public function showLinkRequestForm()
+    {
+        return view('auth.passwords.email'); // ou onde você deseja mostrar a página de recuperação
+    }
 }

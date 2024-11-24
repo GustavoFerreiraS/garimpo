@@ -18,6 +18,13 @@
 	</head>
 	<body class="single is-preload">
 
+        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
 
 <div id="wrapper">
     <header id="header">
@@ -37,22 +44,45 @@
                                         <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Categorias</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " aria-current="page" href="{{ url('') }}">Chat</a>
+                                        <a class="nav-link " aria-current="page" href="{{ url('') }}">Perfil</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " aria-current="page" href="{{ url('/login') }}">Login</a>
-                                    </li>
-                                    <!--<li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
-                                    </li>-->
-                                </ul>
-                            </div>
+
+                                <!-- Se o usuário NÃO estiver logado, mostra o link de Login -->
+                                    @guest
+                                        <li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="{{ url('/login') }}">Login</a>
+                                        </li>
+                                    @endguest
+
+                                    <!-- Se o usuário ESTIVER logado, mostra o formulário de Logout -->
+                                    @auth
+                                        <li class="nav-item">
+                                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-link nav-link">Sair</button>
+                                            </form>
+                                        </li>
+                                    @endauth
+                                            <!--<li class="nav-item">
+                                                <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
+                                            </li>-->
+                                        </ul>
+                                    </div>
                             <!-- Campo de busca e botão de login -->
                             <form class="d-flex me-2" role="search">
                                 <input class="form-control me-2" type="search" placeholder="Buscar 'Camisa de time'" aria-label="Search">
                                 <button class="btn btn-secondary" type="submit">Busca</button>
                             </form>
-                            <a button class="btn btn-secondary " href="{{ url('/login') }}">Anunciar </a>
+
+                            @auth
+                                <a class="btn btn-secondary" href="{{  url('anuncio') }}">Anunciar</a>
+                            @endauth
+
+                        <!-- Se não estiver logado, redireciona para a página de login -->
+                            @guest
+                                <a class="btn btn-secondary" href="{{  url('/login') }}">Anunciar</a>
+                            @endguest
+
                         </div>
                     </nav>
                 </header>
@@ -99,12 +129,33 @@
                                     <div class="col-md-3 mt-3">
                                         <h3 class="fs-6 ms-3 text-uppercase">Menu</h3>
                                         <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/login') }}">Login</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="sobre.html">Anunciar</a>
-                                            </li>
+                                            <!-- Se o usuário NÃO estiver logado, mostra o link de Login -->
+                                    @guest
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="{{ url('/login') }}">Login</a>
+                                    </li>
+                                @endguest
+
+                                <!-- Se o usuário ESTIVER logado, mostra o formulário de Logout -->
+                                @auth
+                                    <li class="nav-item">
+                                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link nav-link">Sair</button>
+                                        </form>
+                                    </li>
+                                @endauth
+
+
+                                    @auth
+                                        <a class="nav-link" href="{{  url('anuncio') }}">Anunciar</a>
+                                    @endauth
+
+                                <!-- Se não estiver logado, redireciona para a página de login -->
+                                    @guest
+                                        <a class="nav-link "href="{{  url('/login') }}">Anunciar</a>
+                                    @endguest
+
                                             <li class="nav-item">
                                                 <a class="nav-link " aria-current="page" href="#">Meus Favoritos</a>
                                             </li>

@@ -1,13 +1,14 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <a href="{{ url('/anuncio/create') }}" class="btn btn-success btn-lg active" role="button" aria-presse="true">CRIAR</a>
+
+                <a href="{{ url('/anuncio/create') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">CRIAR</a>
+
 
                 @if(session('mensagem'))
                 <br>
@@ -37,7 +38,7 @@
                     <td >{{ $value->id }}</td>
                     <td >{{ $value->categoria->nome }}</td>
                     <td >{{ $value->titulo }}</td>
-                    
+
                     <td class='d-flex justify-content-around'>
                         <a href="{{ url('/anuncio/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 

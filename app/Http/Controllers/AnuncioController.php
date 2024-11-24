@@ -25,54 +25,47 @@ class AnuncioController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        $categorias = Categoria::OrderBy('nome', 'ASC')->get();
-        return view('anuncio.anuncio_create', compact('categorias'));
-    }
+{
+     // Carregar categorias para o dropdown
+    $categorias = Categoria::orderBy('nome', 'ASC')->get();
 
-    /**
-     * Store a newly created resource in storage.
-     */
+     // Retornar a view de criação com as categorias
+    return view('anuncio.anuncio_create', compact('categorias'));
+}
+
     public function store(Request $request)
     {
 
+    $content = file_get_contents($request->file('imagem'));
 
-        // 1 - pegar o conteudo do arquivo
-        $content = file_get_contents($request->file('imagem'));
+    $validated = $request->validate([
+        'categoria_id' => 'required|exists:categorias,id',
+        'imagem' => 'required|mimes:jpg,bmp,png',
+        'titulo' => 'required|min:5',
+        'conteudo' => 'required|min:5',
+    ]);
 
 
-        $validated = $request->validate([
-            'categoria_id' => 'required',
-            'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
-            'titulo' => 'required|min:5',
-            'conteudo' => 'required|min:5',
+    $anuncio = new Anuncio();
+    $anuncio->categoria_id = $request->categoria_id;
+    $anuncio->user_id = Auth::id();
+    $anuncio->imagem = base64_encode($content);
+    $anuncio->titulo = $request->titulo;
+    $anuncio->conteudo = $request->conteudo;
+    $anuncio->save();
 
-        ]);
+    return redirect()->route('anuncio.index')->with('mensagem', 'Anúncio criado com sucesso!');
+}
 
-        $anuncio = new Anuncio();
-        $anuncio->categoria_id = $request->categoria_id;
-        $anuncio->user_id = Auth::id();
-        $anuncio->imagem = base64_encode($content);// 3 - converter para base64
-        $anuncio->titulo = $request->titulo;
-        $anuncio->conteudo = $request->conteudo;
-        $anuncio->save();
-
-        //dd($request->all());
-
-    return redirect()->route('anuncio.index')->with('mensagem', 'Anuncio cadastrada com sucesso');
-
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //dd('show: ' . $id);
-        $anuncio = Anuncio::find($id);
+        $anuncio = Anuncio::with('categoria', 'autor')->findOrFail($id);
         return view('anuncio.anuncio_show', compact('anuncio'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
