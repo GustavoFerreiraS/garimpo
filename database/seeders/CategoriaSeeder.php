@@ -26,5 +26,44 @@ class CategoriaSeeder extends Seeder
         DB::table('categorias')->insert([
             'nome' => 'Móveis',
         ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Câmera',
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Tênis',
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Eletrodomésticos',
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Notebooks', //8
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Tablets', //9
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Videogames ', //10
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Bicicletas', //11
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Relógios', //12
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Decoração', //13
+        ]);
+
+        DB::table('categorias')->insert([
+            'nome' => 'Quadros', //15
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'itens de  Beleza', //16
+        ]);
+        DB::table('categorias')->insert([
+            'nome' => 'Esportivos', //17
+        ]);
+
+
     }
 }

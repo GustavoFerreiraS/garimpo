@@ -44,38 +44,38 @@
 <div class="row row-cols-1 row-cols-md-7 g-4">
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/7.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/1') }}">
+            <img src="assets/imagens/7.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Celular">
         </a>
     </div>
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/5.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/5') }}">
+            <img src="assets/imagens/5.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Câmera">
         </a>
     </div>
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/4.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a href="{{ url('/feed/categoria/3') }}" class="hover-card">
+            <img src="assets/imagens/icontv.jpg" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Televisão">
         </a>
     </div>
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/9.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a href="{{ url('/feed/categoria/6') }}" class="hover-card">
+            <img src="assets/imagens/9.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Tênis">
         </a>
     </div>
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/6.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a href="{{ url('/feed/categoria/7') }}" class="hover-card">
+            <img src="assets/imagens/6.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Eletrodomésticos">
         </a>
     </div>
 
     <div class="col-lg-2">
-        <a href="https://www.nike.com.br/?msclkid=b33bd7219b6216380189b01bb1470a99" class="hover-card">
-            <img src="assets/imagens/8.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Nike">
+        <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/2') }}">
+            <img src="assets/imagens/8.png" class="bd-placeholder-img rounded-circle" width="80" height="80" alt="Roupa">
         </a>
     </div>
 </div>
