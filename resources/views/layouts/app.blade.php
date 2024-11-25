@@ -44,6 +44,9 @@
                                         <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Categorias</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link " aria-current="page" href="{{ url('') }}">Perfil</a>
                                     </li>
 
@@ -63,9 +66,6 @@
                                             </form>
                                         </li>
                                     @endauth
-                                            <!--<li class="nav-item">
-                                                <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
-                                            </li>-->
                                         </ul>
                                     </div>
                             <!-- Campo de busca e botão de login -->
@@ -147,14 +147,16 @@
                                 @endauth
 
 
-                                    @auth
-                                        <a class="nav-link" href="{{  url('anuncio') }}">Anunciar</a>
-                                    @endauth
+                                @auth
+                                <!-- Direciona para 'Meus Anúncios' -->
+                                    <a class="nav-link" href="{{ url('/') }}">Meus Anúncios</a>
+                                @endauth
 
-                                <!-- Se não estiver logado, redireciona para a página de login -->
-                                    @guest
-                                        <a class="nav-link "href="{{  url('/login') }}">Anunciar</a>
-                                    @endguest
+                                <!-- Verifica se o usuário é um visitante (não está autenticado) -->
+                                @guest
+                                    <!-- Direciona para a página de login -->
+                                    <a class="nav-link" href="{{ url('/login') }}">Anunciar</a>
+                                @endguest
 
                                             <li class="nav-item">
                                                 <a class="nav-link " aria-current="page" href="#">Meus Favoritos</a>

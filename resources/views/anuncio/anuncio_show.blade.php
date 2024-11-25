@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
+
 <div class="conteiner">
     <div class="row">
 
@@ -11,17 +15,29 @@
         <!-- Card de Perfil do Vendedor -->
 
         <!-- Detalhes do Anúncio -->
+
         <div class="col-md-4">
             <div class="product-card">
                 <h2 class="text-xl font-bold mb-2">{{ $anuncio->titulo }}</h2>
-                <p class="text-3xl font-bold text-black mb-2">R${{ number_format($anuncio->preco, 2, ',', '.') }}</p>
-                <button class="btn btn-secondary w-100 mb-2">Tenho Interesse</button>
-                <button class="btn btn-secondary w-100">Favoritar</button>
+
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="" class="btn btn-secondary w-100">Chat</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="" class="btn btn-secondary w-100">Favoritar</a>
+                    </li>
+                    <li>
+                        <a href="" class="btn btn-danger w-100">Denunciar</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
+
+
 <!-- Card de Perfil do Vendedor -->
-        <a href="index.html" class="col-md-4 card h-100">
+        <a href="" class="col-md-4 card h-100">
             <div class="seller-profile text-center">
                 <h3 class="font-weight-bold">{{ $anuncio->autor->name }}</h3>
                 <p class="text-muted">Ativa a 2 anos no Garimpo.com</p>
@@ -42,7 +58,7 @@
 
     <!-- Produtos Similares e Vendedor -->
     <div>
-        <h2 class="text-xl font-bold mb-4">Produtos Similares</h2>
+        <h5 class="text-xl font-bold mb-4">Produtos Similares</h5>
         <div class="row row-cols-1 row-cols-md-2 g-3">
 
             <!-- Card Produto Similar 1 -->
@@ -77,6 +93,8 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 
 @section('styles')

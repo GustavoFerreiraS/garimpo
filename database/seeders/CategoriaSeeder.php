@@ -55,13 +55,13 @@ class CategoriaSeeder extends Seeder
         ]);
 
         DB::table('categorias')->insert([
-            'nome' => 'Quadros', //15
+            'nome' => 'Quadros', //14
         ]);
         DB::table('categorias')->insert([
-            'nome' => 'itens de  Beleza', //16
+            'nome' => 'itens de  Beleza', //15
         ]);
         DB::table('categorias')->insert([
-            'nome' => 'Esportivos', //17
+            'nome' => 'Esportivos', //16
         ]);
 
 
