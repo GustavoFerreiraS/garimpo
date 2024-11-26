@@ -28,7 +28,7 @@
                         <a href="" class="btn btn-secondary w-100">Favoritar</a>
                     </li>
                     <li>
-                        <a href="" class="btn btn-danger w-100">Denunciar</a>
+                        <a href="{{ url('/DenunciaAnuncio/' . $anuncio->id) }}" class="btn btn-danger w-100">Denunciar</a>
                     </li>
                 </ul>
             </div>

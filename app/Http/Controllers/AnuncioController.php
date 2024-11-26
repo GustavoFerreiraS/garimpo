@@ -28,8 +28,6 @@ class AnuncioController extends Controller
 {
      // Carregar categorias para o dropdown
     $categorias = Categoria::orderBy('nome', 'ASC')->get();
-
-     // Retornar a view de criação com as categorias
     return view('anuncio.anuncio_create', compact('categorias'));
 }
 
@@ -39,8 +37,8 @@ class AnuncioController extends Controller
     $content = file_get_contents($request->file('imagem'));
 
     $validated = $request->validate([
-        'categoria_id' => 'required|exists:categorias,id',
-        'imagem' => 'required|mimes:jpg,bmp,png',
+        'categoria_id' => 'required',
+        'imagem' => 'mimes:jpg,bmp,png',// 2 - validar o tipo do arquivo
         'titulo' => 'required|min:5',
         'conteudo' => 'required|min:5',
     ]);
@@ -61,9 +59,9 @@ class AnuncioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
-        $anuncio = Anuncio::with('categoria', 'autor')->findOrFail($id);
+        $anuncio = Anuncio::find($id);
         return view('anuncio.anuncio_show', compact('anuncio'));
     }
     /**

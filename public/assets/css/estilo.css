@@ -5,6 +5,7 @@
     text-decoration: none; /* Remove sublinhado */
     color: inherit; /* Mantém a cor padrão do texto */
     display: flex; /* Faz o link ocupar todo o espaço do card */
+    font-family: 'Lucida Sans';
 }
 
 .row {

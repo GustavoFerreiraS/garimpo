@@ -2,6 +2,81 @@
 
 @section('content')
 
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        background-color: #e6dfe8;
+        font-family: 'Lucida Sans';
+    }
+
+   
+
+    .form-group label {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 10px;
+        padding: 12px;
+        margin: 20px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .alert {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .form-control-file {
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    /* Estilos Responsivos */
+    @media (max-width: 768px) {
+        .card {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+</style>
+
 <link rel="stylesheet" href="{{ url('/richtexteditor/rte_theme_default.css') }}" />
 <script type="text/javascript" src="{{ url('/richtexteditor/rte.js') }}"> </script>
 <script type="text/javascript" src='{{ url('/richtexteditor/plugins/all_plugins.js') }}'></script>
@@ -10,7 +85,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Criar Anúncio') }}</div>
+              
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -22,7 +97,7 @@
                 </div>
                 @endif
 
-                <form method="POST" action="{{ route('anuncio') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('/anuncio') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -56,3 +131,8 @@
 </div>
 
 @endsection
+
+
+
+
+

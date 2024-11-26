@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DenunciarAnuncio;
 use App\Models\Anuncio;
+use App\Models\Denuncia;
 use illuminate\Database\Eloquent\Relations\HasOne;
 
 class ModeracaoController extends Controller
 {
-    public function ModeracaoDenunciaAnuncio(){
+    public function ModeracaoDenunciaAnuncio(string $id){
         $denunciaAnuncio = DenunciarAnuncio::orderBy('id', 'DESC')->paginate(10);
         return view('moderacao.denunciaAnuncio', compact('denunciaAnuncio'));
     }
@@ -35,6 +36,5 @@ class ModeracaoController extends Controller
 
         return redirect()->route('ModeracaoDenunciaAnuncio')->with('mensagem', 'Denúncia negada com sucesso!');
     }
-
 
 }

@@ -10,6 +10,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use App\Models\Categoria;
 
 
+
 class Anuncio extends Model implements Auditable
 {
     use HasFactory;
@@ -17,13 +18,13 @@ class Anuncio extends Model implements Auditable
 
     protected $table ="anuncios";
 
-    public function autor()
+    public function autor(): HasOne
     {
         return $this->HasOne(User::class, 'id', 'user_id');
 
     }
 
-    public function categoria()
+    public function categoria(): HasOne
     {
         return $this->HasOne(Categoria::class, 'id', 'categoria_id');
 
