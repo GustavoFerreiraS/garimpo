@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Models\Anuncio;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ChatController;
 
 
 
@@ -92,7 +93,8 @@ Route::get('/', [FeedController::class, 'index'])->name('home');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-
+    Route::get('/chat/{id}', [ChatController::class, 'show'])->name('chat.show')->middleware('auth');
+    Route::post('/chat/{id}', [ChatController::class, 'sendMessage'])->name('chat.send')->middleware('auth');
 
 
     //-----------------CATEGORIA----------------//

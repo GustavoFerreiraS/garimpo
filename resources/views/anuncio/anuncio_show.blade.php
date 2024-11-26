@@ -22,7 +22,11 @@
 
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <a href="" class="btn btn-secondary w-100">Chat</a>
+                        @auth
+                                <a href="{{ route('chat.show', $anuncio->id) }}" class="btn btn-secondary w-100">Chat</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-secondary w-100">Login para Chat</a>
+                        @endauth
                     </li>
                     <li class="mb-2">
                         @auth
