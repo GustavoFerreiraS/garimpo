@@ -159,7 +159,7 @@
                                 @endguest
 
                                             <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="#">Meus Favoritos</a>
+                                                <a class="nav-link" href="{{ route('favoritos') }}">Meus Favoritos</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link " aria-current="page" href="#">Sobre</a>

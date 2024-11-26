@@ -64,6 +64,15 @@ class FeedController extends Controller
         return back()->withInput();
 
     }
+    public function favoritos()
+    {
+        $user_id = Auth::id();
+        $curtidas = Curtida::with('anuncio')->where('user_id', $user_id)->get();
+
+        return view('feed.favoritos', ['curtidas' => $curtidas]);
+    }
+
+
 
     public function denunciarAnuncio($id){
         $anuncio = Anuncio::find($id);
@@ -71,6 +80,12 @@ class FeedController extends Controller
     }
 
     public function denunciarAnuncioStore(Request $request){
+
+        $request->validate([
+            'anuncio_id' => 'required|exists:anuncios,id',
+            'conteudo' => 'required|string|min:10',
+        ]);
+
 
         $user_id = Auth::id();
 
@@ -80,7 +95,7 @@ class FeedController extends Controller
         $DenunciarAnunciar->conteudo = $request->conteudo;
         $DenunciarAnunciar->save();
 
-        return back()->withInput();
+        return redirect(url('/'))->with('mensagem', 'Denúncia enviada com sucesso!');
     }
 
 }

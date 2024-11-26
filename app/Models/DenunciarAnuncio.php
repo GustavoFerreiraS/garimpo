@@ -12,15 +12,15 @@ class DenunciarAnuncio extends Model
 
     protected $table = 'denuncia_anuncios';
 
-    public function anuncio(): HasOne
+    // Relacionamento com o modelo Anuncio
+    public function anuncio()
     {
-        return $this->hasOne(Anuncio::class, 'id', 'anuncio_id');
-
+        return $this->belongsTo(Anuncio::class, 'anuncio_id', 'id');
     }
 
-    public function denunciante(): HasOne
+    // Relacionamento com o modelo User (Denunciante)
+    public function denunciante()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
-
-    } 
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

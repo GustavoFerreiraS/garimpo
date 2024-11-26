@@ -10,9 +10,15 @@ use illuminate\Database\Eloquent\Relations\HasOne;
 
 class ModeracaoController extends Controller
 {
-    public function ModeracaoDenunciaAnuncio(string $id){
-        $denunciaAnuncio = DenunciarAnuncio::orderBy('id', 'DESC')->paginate(10);
-        return view('moderacao.denunciaAnuncio', compact('denunciaAnuncio'));
+    public function ModeracaoDenunciaAnuncio()
+    {
+        // Busca todas as denúncias ordenadas por ID, incluindo os relacionamentos
+    $denunciaAnuncio = DenunciarAnuncio::with(['anuncio.autor', 'denunciante'])
+    ->orderBy('id', 'DESC')
+    ->paginate(10);
+
+// Retorna para a view, enviando os dados
+return view('moderacao.denunciaAnuncio', compact('denunciaAnuncio'));
     }
 
     public function ModeracaoDenunciaAnuncioAceito($id){
@@ -34,7 +40,8 @@ class ModeracaoController extends Controller
         $denunciaAnuncio->status = 'NEGADO';
         $denunciaAnuncio->save();
 
-        return redirect()->route('ModeracaoDenunciaAnuncio')->with('mensagem', 'Denúncia negada com sucesso!');
+        return redirect()->route('ModeracaoDenunciaAnuncio')->with('mensagem', 'Denúncia negado com sucesso!');
+
     }
 
 }

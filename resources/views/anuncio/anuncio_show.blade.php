@@ -25,10 +25,25 @@
                         <a href="" class="btn btn-secondary w-100">Chat</a>
                     </li>
                     <li class="mb-2">
-                        <a href="" class="btn btn-secondary w-100">Favoritar</a>
+                        @auth
+                            @php
+                                $curtido = \App\Models\Curtida::where('anuncio_id', $anuncio->id)
+                                            ->where('user_id', auth()->id())
+                                            ->exists();
+                            @endphp
+
+                            @if($curtido)
+                                <a href="{{ route('curtida', $anuncio->id) }}" class="btn btn-dark w-100">Descurtir</a>
+                            @else
+                                <a href="{{ route('curtida', $anuncio->id) }}" class="btn btn-primary w-100">Curtir</a>
+                            @endif
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-primary w-100">Curtir</a>
+                        @endauth
                     </li>
+
                     <li>
-                        <a href="{{ url('/DenunciaAnuncio/' . $anuncio->id) }}" class="btn btn-danger w-100">Denunciar</a>
+                        <a href="{{ url('/feed/denunciarAnuncio/' . $anuncio->id) }}" class="btn btn-danger w-100">Denunciar</a>
                     </li>
                 </ul>
             </div>
