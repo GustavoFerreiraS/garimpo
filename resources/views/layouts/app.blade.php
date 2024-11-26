@@ -149,7 +149,7 @@
 
                                 @auth
                                 <!-- Direciona para 'Meus Anúncios' -->
-                                    <a class="nav-link" href="{{ url('/') }}">Meus Anúncios</a>
+                                    <a class="nav-link" href="{{ url('/anuncio') }}">Meus Anúncios</a>
                                 @endauth
 
                                 <!-- Verifica se o usuário é um visitante (não está autenticado) -->
@@ -162,8 +162,10 @@
                                                 <a class="nav-link" href="{{ route('favoritos') }}">Meus Favoritos</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="#">Sobre</a>
+                                                <a class="nav-link" aria-current="page" href="{{ route('sobre') }}">Sobre</a>
                                             </li>
+
+
                                             <li class="nav-item">
                                                 <a class="nav-link " aria-current="page" href="#">Contato</a>
                                             </li>

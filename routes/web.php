@@ -79,9 +79,17 @@ Route::get('/', [FeedController::class, 'index'])->name('home');
   Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
   Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
-
-
   //-----------------CRIAR CONTA---------------//
+
+//---------SOBRE------------//
+Route::get('/sobre', function () {
+    return view('sobre');
+})->name('sobre');
+
+//---------SOBRE------------//
+
+
+
   Auth::routes();
 
   Route::middleware(['auth'])->group(function () {
