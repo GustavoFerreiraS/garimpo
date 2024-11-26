@@ -136,6 +136,18 @@ class AnuncioController extends Controller
         return redirect()->route('anuncio.index')->with('mensagem', 'Anuncio excluida com sucesso');
 
     }
+    public function vendedoresDaSemana()
+{
+    $anuncios = Anuncio::with('autor') // Carrega os usuários relacionados
+        ->whereHas('autor', function ($query) {
+            $query->whereBetween('id', [3, 7]); // Filtra IDs entre 3 e 7
+        })
+        ->orderBy('id', 'DESC') // Ordenação opcional
+        ->get();
+
+    return view('welcome', compact('anuncios'));
+}
+
 
 
 }

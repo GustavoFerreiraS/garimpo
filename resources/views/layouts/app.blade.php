@@ -28,63 +28,74 @@
 
 <div id="wrapper">
     <header id="header">
-                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                        <div class="container">
-                            <!-- Botão de colapso para dispositivos menores -->
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <!-- Logo e links da navbar -->
-                            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                                <a href="{{ url('/') }}" class="navbar-brand">
-                                    <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo" width="80px">
-                                </a>
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Categorias</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " aria-current="page" href="{{ url('') }}">Perfil</a>
-                                    </li>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Botão de colapso para dispositivos menores -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                                <!-- Se o usuário NÃO estiver logado, mostra o link de Login -->
-                                    @guest
-                                        <li class="nav-item">
-                                            <a class="nav-link" aria-current="page" href="{{ url('/login') }}">Login</a>
-                                        </li>
-                                    @endguest
+                <!-- Logo e links da navbar -->
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo" width="80px">
+                    </a>
 
-                                    <!-- Se o usuário ESTIVER logado, mostra o formulário de Logout -->
-                                    @auth
-                                        <li class="nav-item">
-                                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                                                @csrf
-                                                <button type="submit" class="btn btn-link nav-link">Sair</button>
-                                            </form>
-                                        </li>
-                                    @endauth
-                                        </ul>
-                                    </div>
-                            <!-- Campo de busca e botão de login -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url('/feed/categoria') }}">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/feed/autor') }}">Autores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('') }}">Perfil</a>
+                        </li>
+
+                        <!-- Links para usuários -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            </li>
+                        @endguest
+
+                        @auth
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link nav-link">Sair</button>
+                                </form>
+                            </li>
+                        @endauth
+                    </ul>
+
+
+
+
+                    <!-- Campo de busca -->
+                        <div class="d-flex align-items-center">
                             <form class="d-flex me-2" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Buscar 'Camisa de time'" aria-label="Search">
-                                <button class="btn btn-secondary" type="submit">Busca</button>
+                                <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+                                <button class="btn btn-secondary ms-2" type="submit">Buscar</button>
                             </form>
 
-                            @auth
-                                <a class="btn btn-secondary" href="{{  url('anuncio') }}">Anunciar</a>
-                            @endauth
-
-                        <!-- Se não estiver logado, redireciona para a página de login -->
+                            <!-- Botões de "Anunciar" e "Login" no mesmo local -->
                             @guest
-                                <a class="btn btn-secondary" href="{{  url('/login') }}">Anunciar</a>
+                                <a class="btn btn-secondary ms-2" href="{{ url('/login') }}">Anunciar</a>
                             @endguest
 
+                            @auth
+                                <a class="btn btn-secondary ms-2" href="{{ url('anuncio') }}">Anunciar</a>
+                                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+
+
+                                </form>
+                            @endauth
                         </div>
-                    </nav>
+
+            </div>
+        </nav>
+
                 </header>
 
             <div id="main">
@@ -95,112 +106,78 @@
 
                 <!-- Footer -->
 					<section id="footer">
-                        <footer class="rodape bg-body-tertiary">
-                            <div class="container">
-                                <div class="row p-5 text-center text-md-start">
-                                    <!-- Logo e Descrição -->
-                                    <div class="col-md-3 mt-3">
-                                        <a class="navbar-brand" href="{{ url('/') }}">
-                                            <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo" width="100" height="100">
-                                        </a>
-                                    </div>
-                                    <!-- Links -->
-                                    <div class="col-md-3 mt-3">
-                                        <h3 class="fs-6 ms-3 text-uppercase">categorias</h3>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/1') }}">Celular</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/3') }}">Televisão</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/2') }}">Roupa</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria/4') }}">Móveis</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="{{ url('/feed/categoria') }}">Mais categorias</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- Menu -->
-                                    <div class="col-md-3 mt-3">
-                                        <h3 class="fs-6 ms-3 text-uppercase">Menu</h3>
-                                        <ul class="nav flex-column">
-                                            <!-- Se o usuário NÃO estiver logado, mostra o link de Login -->
-                                    @guest
-                                    <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="{{ url('/login') }}">Login</a>
-                                    </li>
-                                @endguest
+<!-- Footer -->
+<section id="footer">
+    <footer class="rodape bg-body-tertiary">
+        <div class="container">
+            <div class="row p-5 text-center text-md-start">
+                <!-- Logo e Descrição -->
+                <div class="col-md-3 mt-3">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ url('assets/imagens/Logo2.png') }}" alt="Logo"  style="max-width: 180px;">
+                    </a>
+                </div>
 
-                                <!-- Se o usuário ESTIVER logado, mostra o formulário de Logout -->
-                                @auth
-                                    <li class="nav-item">
-                                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                                            @csrf
-                                            <button type="submit" class="btn btn-link nav-link">Sair</button>
-                                        </form>
-                                    </li>
-                                @endauth
+                <!-- Links -->
+                <div class="col-md-3 mt-3">
+                    <h5 class="fs-6 ms-3 text-uppercase">Categorias</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/feed/categoria/1') }}">Celular</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/feed/categoria/3') }}">Televisão</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/feed/categoria/2') }}">Roupa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/feed/categoria/4') }}">Móveis</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/feed/categoria') }}">Mais categorias</a></li>
+                    </ul>
+                </div>
 
+                <!-- Menu -->
+                <div class="col-md-3 mt-3">
+                    <h5 class="fs-6 ms-3 text-uppercase">Menu</h5>
+                    <ul class="nav flex-column">
+                        @guest
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
+                        @endguest
 
-                                @auth
-                                <!-- Direciona para 'Meus Anúncios' -->
-                                    <a class="nav-link" href="{{ url('/anuncio') }}">Meus Anúncios</a>
-                                @endauth
+                        @auth
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link nav-link">Sair</button>
+                                </form>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/anuncio') }}">Meus Anúncios</a></li>
+                        @endauth
 
-                                <!-- Verifica se o usuário é um visitante (não está autenticado) -->
-                                @guest
-                                    <!-- Direciona para a página de login -->
-                                    <a class="nav-link" href="{{ url('/login') }}">Anunciar</a>
-                                @endguest
+                        @guest
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Anunciar</a></li>
+                        @endguest
 
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('favoritos') }}">Meus Favoritos</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" aria-current="page" href="{{ route('sobre') }}">Sobre</a>
-                                            </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('favoritos') }}">Meus Favoritos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('sobre') }}">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contato') }}">Contato</a></li>
+                    </ul>
+                </div>
 
+                <!-- Redes Sociais -->
+                <div class="col-md-3 mt-3">
+                    <h5 class="fs-6 ms-3 text-uppercase">Redes Sociais</h5>
+                    <ul class="nav justify-content-center justify-content-md-start">
+                        <li class="nav-item"><a class="nav-link fs-3" href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook" style="font-size: 30px; margin-right: 8px;"></i></a></li>
+                        <li class="nav-item"><a class="nav-link fs-3" href="https://x.com" target="_blank"><i class="bi bi-x" style="font-size: 30px; margin-right: 8px;"></i></a></li>
+                        <li class="nav-item"><a class="nav-link fs-3" href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram" style="font-size: 30px; margin-right: 8px;"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
 
-                                            <li class="nav-item">
-                                                <a class="nav-link " aria-current="page" href="#">Contato</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- Redes Sociais -->
-                                    <div class="col-md-3 mt-3">
-                                        <h3 class="fs-6 ms-3 text-uppercase">Redes Sociais</h3>
-                                        <ul class="nav justify-content-center justify-content-md-start">
-                                            <!-- Facebook -->
-                                            <li class="nav-item">
-                                                <a class="nav-link fs-3" href="https://www.facebook.com" target="_blank">
-                                                    <i class="bi bi-facebook" style="font-size: 30px; margin-right: 8px;"></i>
-                                                </a>
-                                            </li>
-                                            <!-- X (Antigo Twitter) -->
-                                            <li class="nav-item">
-                                                <a class="nav-link fs-3" href="https://x.com" target="_blank">
-                                                    <i class="bi bi-x" style="font-size: 30px; margin-right: 8px;"></i>
-                                                </a>
-                                            </li>
-                                            <!-- Instagram -->
-                                            <li class="nav-item">
-                                                <a class="nav-link fs-3" href="https://www.instagram.com" target="_blank">
-                                                    <i class="bi bi-instagram" style="font-size: 30px; margin-right: 8px;"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </footer>
 					</section>
 </div>
+
+
+
+
 		<!-- Scripts -->
 			<script src="{{ url('assets/js/jquery.min.js') }}"></script>
 			<script src="{{ url('assets/js/browser.min.js') }}"></script>

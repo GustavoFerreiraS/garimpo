@@ -81,6 +81,7 @@ Route::get('/', [FeedController::class, 'index'])->name('home');
 
   //-----------------CRIAR CONTA---------------//
 
+
 //---------SOBRE------------//
 Route::get('/sobre', function () {
     return view('sobre');
@@ -88,6 +89,15 @@ Route::get('/sobre', function () {
 
 //---------SOBRE------------//
 
+// Rota para a página de Contato
+Route::get('/contato', function () {
+    return view('contato');
+})->name('contato');
+
+
+
+
+Route::get('/', [AnuncioController::class, 'vendedoresDaSemana'])->name('welcome');
 
 
   Auth::routes();

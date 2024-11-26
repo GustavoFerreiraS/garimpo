@@ -13,5 +13,10 @@
     <p><strong>Valores:</strong> Compromisso com a transparência, segurança e um excelente atendimento ao cliente.</p>
 
     <p>Se tiver alguma dúvida ou sugestão, entre em contato conosco!</p>
+
+    <div class style="text-align: center; margin: 15px;">
+        <a class="btn btn-secondary ms-2" href="{{ url('/') }}">Explore Nossa Loja</a>
+    </div>
 </div>
 @endsection
+
