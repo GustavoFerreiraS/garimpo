@@ -2,22 +2,6 @@
 
 @section('content')
 
-<style>
-
-@media (max-width: 768px) {
-    .carousel-inner img {
-        height: 30vh; /* Altura menor para dispositivos móveis */
-    }
-}
-
-@media (min-width: 1200px) {
-    .carousel-inner img {
-        height: 70vh; /* Altura maior para telas grandes */
-    }
-}
-
-
-</style>
 <article class="post">
 
 
@@ -180,33 +164,7 @@
 <!--fim Produtos mais procurados-->
 
 
-<!--vendedores-->
-<div class="container my-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="vendedoresDaSemana">
-            <h3>Vendedores da Semana</h3>
-        </div>
 
-        @forelse ($anuncios as $anuncio)
-        <div class="col">
-            <div class="card h-100">
-
-                <div class="card-body">
-                    <h5 class="card-title">{{ $anuncio->autor->name }}</h5>
-
-                </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-secondary w-100">Ver Perfil</button>
-                </div>
-            </div>
-        </div>
-        @empty
-        <p class="text-center">Nenhum vendedor encontrado.</p>
-        @endforelse
-    </div>
-</div>
-
-<!--fim vendedores-->
 
 </article>
 

@@ -75,42 +75,7 @@
     </div>
 
 
-    <!-- Produtos Similares e Vendedor -->
-    <div>
-        <h5 class="text-xl font-bold mb-4">Produtos Similares</h5>
-        <div class="row row-cols-1 row-cols-md-2 g-3">
 
-            <!-- Card Produto Similar 1 -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="assets/imagens/vendedora.jpg" class="card-img-top" alt="Imagem do Produto">
-                    <div class="card-body">
-                        <h5 class="card-title">Mariana Lois</h5>
-                        <p class="card-text">Há 5 anos vendendo no Garimpo.com</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-secondary w-100">Tenho Interesse</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Produto Similar 2 -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="assets/imagens/vendedora.jpg" class="card-img-top" alt="Imagem do Produto">
-                    <div class="card-body">
-                        <h5 class="card-title">Mariana Lois</h5>
-                        <p class="card-text">Há 5 anos vendendo no Garimpo.com</p>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-secondary w-100">Tenho Interesse</button>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
 </div>
 
 

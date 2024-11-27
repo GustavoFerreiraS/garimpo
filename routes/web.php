@@ -143,11 +143,6 @@ Route::get('/', [AnuncioController::class, 'vendedoresDaSemana'])->name('welcome
 
 
 
-
-
-
-
-
     //-----------------ANUNCIO----------------//
     Route::get('/anuncio', [AnuncioController::class, 'index'])->name('anuncio.index');
 
@@ -163,12 +158,6 @@ Route::get('/', [AnuncioController::class, 'vendedoresDaSemana'])->name('welcome
     Route::delete('/anuncio/{id}', [AnuncioController::class, 'destroy'])->name('anuncio.destroy');
 
     //-----------------ANUNCIO----------------
-
-
-
-
-
-
 
 
 

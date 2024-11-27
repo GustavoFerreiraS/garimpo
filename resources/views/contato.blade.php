@@ -5,7 +5,7 @@
 @section('content')
     <div class="container my-5">
         <h2 class="text-center">Entre em Contato Conosco</h2>
-        <form action="" method="POST">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>

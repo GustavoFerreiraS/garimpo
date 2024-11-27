@@ -152,7 +152,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Anunciar</a></li>
                         @endguest
 
-                        <li class="nav-item"><a class="nav-link" href="{{ route('favoritos') }}">Meus Favoritos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Meus Favoritos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('sobre') }}">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contato') }}">Contato</a></li>
                     </ul>
