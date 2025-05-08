@@ -13,8 +13,7 @@
 ## 🧰 Tecnologias Utilizadas
 
 - **Laravel (PHP)**
-- **Blade**
-- **CSS / SCSS**
+- **CSS**
 - **JavaScript**
 - **AdminLTE**
 
