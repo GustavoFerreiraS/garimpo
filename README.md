@@ -29,7 +29,7 @@
 ## 👥 Colaboradores
 
 - [Gustavo Ferreira](https://github.com/GustavoFerreiraS)
-- [Jorlana Sousa](https://github.com/JorlanaSousa) *(confirme se está correto)*
+- [Jorlana Sousa](https://github.com/JorlanaSousa) 
 
 ## ⚙️ Como Executar Localmente
 
